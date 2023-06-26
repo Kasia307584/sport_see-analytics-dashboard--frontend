@@ -4,6 +4,8 @@
 /node_modules
 /.pnp
 .pnp.js
+../P12-back-end
+
 
 # testing
 /coverage
