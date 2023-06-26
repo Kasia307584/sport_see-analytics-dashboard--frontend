@@ -4,7 +4,7 @@
 /node_modules
 /.pnp
 .pnp.js
-../P12-back-end
+/P12-back-end
 
 
 # testing
