@@ -1,7 +1,6 @@
 import data from "./dataMock.json";
 
 export function getMainDataMock() {
-  console.log(data.USER_MAIN_DATA);
   return data.USER_MAIN_DATA;
 }
 export function getUserActivityMock() {

@@ -42,12 +42,8 @@ export default function Layout() {
             </ul>
           </nav>
         </div>
-
         <Outlet />
       </div>
-      <footer className="footer">
-        <p className="footer-text">Copiryght, SportSee 2020</p>
-      </footer>
     </>
   );
 }
