@@ -3,6 +3,10 @@ import data from "./dataMock.json";
 export function getMainDataMock() {
   return data.USER_MAIN_DATA;
 }
+// il faut plutot faire comme ca:
+// export function getMainDataMock(userId) {
+//   return data.USER_MAIN_DATA.find((item) => item.id === userId);
+// }
 export function getUserActivityMock() {
   return data.USER_ACTIVITY;
 }
@@ -41,3 +45,6 @@ export function getPerformance(userId) {
       console.log(data);
     });
 }
+
+// soit tu stock les donnees dans une var apres les recuperer via le fetch
+// useEffect = ou??
