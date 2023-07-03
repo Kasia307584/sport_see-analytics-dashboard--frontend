@@ -3,10 +3,10 @@ import ReactDOM from "react-dom/client";
 import { BrowserRouter } from "react-router-dom";
 import "./index.css";
 import App from "./App";
-import { getMainDataMock } from "./getDataMock";
-import { getUserActivityMock } from "./getDataMock";
-import { getAverageSessionsMock } from "./getDataMock";
-import { getPerformanceMock } from "./getDataMock";
+import { getMainData } from "./getDataMock";
+import { getUserActivity } from "./getDataMock";
+import { getAverageSessions } from "./getDataMock";
+import { getPerformance } from "./getDataMock";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -17,7 +17,7 @@ root.render(
   </React.StrictMode>
 );
 
-getMainDataMock();
-getUserActivityMock();
-getAverageSessionsMock();
-getPerformanceMock();
+getMainData();
+getUserActivity();
+getAverageSessions();
+getPerformance();

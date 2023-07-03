@@ -1,5 +1,5 @@
 import { useParams } from "react-router-dom";
-import { getUserActivityMock } from "./getDataMock";
+import { getUserActivity } from "./getDataMock";
 import {
   LineChart,
   Line,
@@ -9,16 +9,17 @@ import {
   Tooltip,
 } from "recharts";
 
-export default function Activity() {
+export default function ActivityChart() {
   const { userId } = useParams();
   const idNum = Number.parseInt(userId, 10);
 
-  const datas = getUserActivityMock();
+  const datas = getUserActivity();
+  console.log(datas);
 
   const user = datas.find((item) => item.userId === idNum);
   console.log(user);
 
-  const data = datas.map((item) => ({
+  const data = user.sessions.map((item) => ({
     name: item.day,
     uv: item.kilogram,
     pv: 2400,
