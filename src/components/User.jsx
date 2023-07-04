@@ -1,5 +1,5 @@
 import { useParams } from "react-router-dom";
-import { getMainData } from "./getDataMock";
+import { getMainData } from "../services/getDataMock";
 
 export default function User() {
   const { userId } = useParams();

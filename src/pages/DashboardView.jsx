@@ -1,8 +1,8 @@
-import User from "./User";
-import Activity from "./Activity";
+import User from "../components/User";
+import Activity from "../components/Activity";
 import Layout from "./PagesLayout";
-import ChartTest from "./ChartTest";
-import ActivityChart from "./ActivityChart";
+import ChartTest from "../components/ChartTest";
+import ActivityChart from "../components/ActivityChart";
 
 export default function Dashboard() {
   return (

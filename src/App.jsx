@@ -1,7 +1,7 @@
 // import './App.css';
 import * as React from "react";
 import { Routes, Route } from "react-router-dom";
-import Dashboard from "./DashboardView";
+import Dashboard from "./pages/DashboardView";
 
 export default function App() {
   return (

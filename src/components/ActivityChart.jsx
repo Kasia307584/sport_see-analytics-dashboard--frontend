@@ -1,5 +1,5 @@
 import { useParams } from "react-router-dom";
-import { getUserActivity } from "./getDataMock";
+import { getUserActivity } from "../services/getDataMock";
 import {
   LineChart,
   Line,
