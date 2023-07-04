@@ -1,12 +1,13 @@
 import { useParams } from "react-router-dom";
 import { getUserActivity } from "../services/getDataMock";
 import {
-  LineChart,
-  Line,
-  CartesianGrid,
+  BarChart,
+  Bar,
   XAxis,
   YAxis,
+  CartesianGrid,
   Tooltip,
+  Legend,
 } from "recharts";
 
 export default function ActivityChart() {
@@ -16,19 +17,32 @@ export default function ActivityChart() {
 
   const data = user.sessions.map((item) => ({
     name: item.day,
-    uv: item.kilogram,
-    pv: 2400,
+    uv: item.calories,
+    pv: item.kilogram,
     amt: 2400,
   }));
 
   return (
-    <LineChart width={400} height={400} data={data}>
-      <Line type="monotone" dataKey="uv" stroke="#8884d8" />
-      <CartesianGrid stroke="#ccc" strokeDasharray="5 5" />
+    <BarChart
+      width={500}
+      height={300}
+      data={data}
+      margin={{
+        top: 20,
+        right: 30,
+        left: 20,
+        bottom: 5,
+      }}
+    >
+      <CartesianGrid strokeDasharray="3 3" />
       <XAxis dataKey="name" />
-      <YAxis />
+      <YAxis yAxisId="left" orientation="left" stroke="#8884d8" />
+      <YAxis yAxisId="right" orientation="right" stroke="#82ca9d" />
       <Tooltip />
-    </LineChart>
+      <Legend />
+      <Bar yAxisId="left" dataKey="pv" fill="#8884d8" />
+      <Bar yAxisId="right" dataKey="uv" fill="#82ca9d" />
+    </BarChart>
   );
 }
 
