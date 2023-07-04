@@ -11,13 +11,8 @@ import {
 
 export default function ActivityChart() {
   const { userId } = useParams();
-  const idNum = Number.parseInt(userId, 10);
 
-  const datas = getUserActivity();
-  console.log(datas);
-
-  const user = datas.find((item) => item.userId === idNum);
-  console.log(user);
+  const user = getUserActivity(userId);
 
   const data = user.sessions.map((item) => ({
     name: item.day,

@@ -3,11 +3,8 @@ import { getUserActivity } from "../services/getDataMock";
 
 export default function Activity() {
   const { userId } = useParams();
-  const idNum = Number.parseInt(userId, 10);
 
-  const data = getUserActivity();
-
-  const user = data.find((item) => item.userId === idNum);
+  const user = getUserActivity(userId);
 
   return (
     <div className="wrapper">
