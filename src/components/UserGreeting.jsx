@@ -1,7 +1,7 @@
 import { useParams } from "react-router-dom";
 import { getMainData } from "../services/getDataMock";
 
-export default function User() {
+export default function UserGreeting() {
   const { userId } = useParams();
 
   const user = getMainData(userId);

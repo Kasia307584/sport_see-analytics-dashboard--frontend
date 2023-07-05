@@ -1,4 +1,4 @@
-import User from "../components/User";
+import UserGreeting from "../components/UserGreeting";
 import Layout from "./PagesLayout";
 import ActivityChart from "../components/ActivityChart";
 import SessionsChart from "../components/SessionsChart";
@@ -7,7 +7,7 @@ export default function Dashboard() {
   return (
     <>
       <Layout />
-      <User />
+      <UserGreeting />
       <ActivityChart />
       <SessionsChart />
     </>
