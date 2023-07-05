@@ -3,6 +3,7 @@ import Activity from "../components/Activity";
 import Layout from "./PagesLayout";
 import ChartTest from "../components/ChartTest";
 import ActivityChart from "../components/ActivityChart";
+import SessionsChart from "../components/SessionsChart";
 
 export default function Dashboard() {
   return (
@@ -12,6 +13,7 @@ export default function Dashboard() {
       <Activity />
       <ChartTest />
       <ActivityChart />
+      <SessionsChart />
     </>
   );
 }
