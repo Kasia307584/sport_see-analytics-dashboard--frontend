@@ -48,6 +48,21 @@ const data = [
 ];
 
 export default function PerformanceChart() {
+  // const { userId } = useParams();
+
+  // const user = getPerformance(userId);
+
+  // const chartSubject1 = user.kind[1];
+  // console.log(chartSubject1);
+
+  // const chartSubjects = Object.values(user.kind);
+  // console.log(chartSubjects);
+
+  // const subjectValues = user.data.map((item) => {
+  //   return item.value;
+  // });
+  // console.log(subjectValues);
+
   return (
     <RadarChart
       width={500}
