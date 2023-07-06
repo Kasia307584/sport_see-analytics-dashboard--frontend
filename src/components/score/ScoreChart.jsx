@@ -1,5 +1,5 @@
 import { useParams } from "react-router-dom";
-import { getMainData, getUserActivity } from "../../services/getDataMock";
+import { getMainData } from "../../services/getDataMock";
 import { RadialBarChart, RadialBar, Legend, PolarAngleAxis } from "recharts";
 
 const style = {
@@ -23,7 +23,7 @@ export default function ScoreChart() {
   return (
     <div className="score-wrapper">
       <RadialBarChart
-        width={500}
+        width={300}
         height={300}
         cx="50%"
         cy="50%"
@@ -31,6 +31,7 @@ export default function ScoreChart() {
         barSize={10}
         data={data}
         startAngle={90}
+        style={{ background: "#ededed" }}
       >
         <PolarAngleAxis type="number" domain={[0, 100]} tick={false} />
         <RadialBar dataKey="uv" fill="#FF0000" cornerRadius={25} />

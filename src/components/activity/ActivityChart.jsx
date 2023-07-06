@@ -17,16 +17,20 @@ export default function ActivityChart() {
 
   const data = user.sessions.map((item) => ({
     name: item.day,
-    uv: item.calories,
-    pv: item.kilogram,
-    amt: 2400,
+    uv: item.kilogram,
+    pv: item.calories,
   }));
+
+  const tooltipStyle = {
+    backgroundColor: "#FF0000",
+    color: "#ededed",
+  };
 
   return (
     <div className="activity-wrapper">
       <BarChart
-        width={500}
-        height={300}
+        width={800}
+        height={250}
         data={data}
         margin={{
           top: 20,
@@ -34,15 +38,40 @@ export default function ActivityChart() {
           left: 20,
           bottom: 5,
         }}
+        barSize={10}
+        barGap={10}
       >
-        <CartesianGrid strokeDasharray="3 3" />
-        <XAxis dataKey="name" />
-        <YAxis yAxisId="left" orientation="left" stroke="#8884d8" />
-        <YAxis yAxisId="right" orientation="right" stroke="#82ca9d" />
-        <Tooltip />
+        <CartesianGrid strokeDasharray="3 3" vertical={false} />
+        <XAxis
+          dataKey="name"
+          tickLine={false}
+          stroke="#888888"
+          tickSize={17}
+          axisLine={{ stroke: "#d4d4d4", strokeWidth: 1 }}
+        />
+        <YAxis
+          yAxisId="left"
+          orientation="right"
+          stroke="#888888"
+          tickLine={false}
+          tickSize={17}
+          axisLine={false}
+        />
+        <YAxis yAxisId="right" orientation="left" stroke="#888888" hide />
+        <Tooltip itemStyle={tooltipStyle} />
         <Legend />
-        <Bar yAxisId="left" dataKey="pv" fill="#8884d8" />
-        <Bar yAxisId="right" dataKey="uv" fill="#82ca9d" />
+        <Bar
+          yAxisId="left"
+          dataKey="uv"
+          fill="#000000"
+          radius={[20, 20, 0, 0]}
+        />
+        <Bar
+          yAxisId="right"
+          dataKey="pv"
+          fill="#FF0000"
+          radius={[20, 20, 0, 0]}
+        />
       </BarChart>
     </div>
   );

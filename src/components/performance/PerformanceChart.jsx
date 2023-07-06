@@ -1,12 +1,6 @@
-import { useParams } from "react-router-dom";
-import { getPerformance } from "../../services/getDataMock";
-import {
-  Radar,
-  RadarChart,
-  PolarGrid,
-  PolarAngleAxis,
-  PolarRadiusAxis,
-} from "recharts";
+// import { useParams } from "react-router-dom";
+// import { getPerformance } from "../../services/getDataMock";
+import { Radar, RadarChart, PolarGrid, PolarAngleAxis } from "recharts";
 
 const data = [
   {
@@ -66,23 +60,17 @@ export default function PerformanceChart() {
   return (
     <div className="performance-wrapper">
       <RadarChart
-        width={500}
+        width={300}
         height={300}
         cx="50%"
         cy="50%"
         outerRadius="80%"
         data={data}
+        style={{ background: "#000000" }}
       >
-        <PolarGrid />
-        <PolarAngleAxis dataKey="subject" />
-        <PolarRadiusAxis />
-        <Radar
-          name="Mike"
-          dataKey="A"
-          stroke="#8884d8"
-          fill="#8884d8"
-          fillOpacity={0.6}
-        />
+        <PolarGrid stroke="#FFFFFF" />
+        <PolarAngleAxis dataKey="subject" stroke="#FFFFFF" tickLine={false} />
+        <Radar dataKey="A" stroke="#FF0000" fill="#FF0000" fillOpacity={0.7} />
       </RadarChart>
     </div>
   );

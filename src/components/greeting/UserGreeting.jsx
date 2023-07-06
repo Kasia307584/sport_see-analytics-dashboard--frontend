@@ -12,7 +12,7 @@ export default function UserGreeting() {
         Bonjour <span className="user-name">{user.userInfos.firstName}</span>
       </h1>
       <p className="greeting-message">
-        Félicitations! Vous avez explosé vos objectifs hier
+        Félicitations ! Vous avez explosé vos objectifs hier
       </p>
     </div>
   );
