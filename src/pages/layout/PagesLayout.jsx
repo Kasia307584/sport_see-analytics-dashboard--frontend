@@ -1,9 +1,9 @@
 import { Outlet } from "react-router-dom";
-import logo from "../images/logo.png";
-import bicycle from "../images/icon-bicycle.png";
-import gym from "../images/icon-gym.png";
-import meditation from "../images/icon-meditation.png";
-import swim from "../images/icon-swim.png";
+import logo from "../../images/logo.png";
+import bicycle from "../../images/icon-bicycle.png";
+import gym from "../../images/icon-gym.png";
+import meditation from "../../images/icon-meditation.png";
+import swim from "../../images/icon-swim.png";
 
 export default function Layout() {
   return (

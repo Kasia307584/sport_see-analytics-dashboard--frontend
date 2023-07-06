@@ -1,18 +1,18 @@
-import UserGreeting from "../components/UserGreeting";
-import ActivityChart from "../components/ActivityChart";
-import SessionsChart from "../components/SessionsChart";
-import PerformanceChart from "../components/PerformanceChart";
-import ScoreChart from "../components/ScoreChart";
+import UserGreeting from "../../components/greeting/UserGreeting";
+import ActivityChart from "../../components/activity/ActivityChart";
+import SessionsChart from "../../components/sessions/SessionsChart";
+import PerformanceChart from "../../components/performance/PerformanceChart";
+import ScoreChart from "../../components/score/ScoreChart";
 
 export default function Dashboard() {
   return (
-    <>
+    <main className="main-content">
       <UserGreeting />
       <ActivityChart />
       <SessionsChart />
       <PerformanceChart />
       <ScoreChart />
-    </>
+    </main>
   );
 }
 

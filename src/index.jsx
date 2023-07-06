@@ -1,12 +1,8 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { BrowserRouter } from "react-router-dom";
-import "./index.css";
 import App from "./App";
-import { getMainData } from "./services/getDataMock";
-import { getUserActivity } from "./services/getDataMock";
-import { getAverageSessions } from "./services/getDataMock";
-import { getPerformance } from "./services/getDataMock";
+import "./style/style.css";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -16,8 +12,3 @@ root.render(
     </BrowserRouter>
   </React.StrictMode>
 );
-
-getMainData();
-getUserActivity();
-getAverageSessions();
-getPerformance();

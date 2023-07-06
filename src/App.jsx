@@ -1,17 +1,10 @@
-// import './App.css';
-import * as React from "react";
-import { Routes, Route } from "react-router-dom";
-import Dashboard from "./pages/DashboardView";
-import Layout from "./pages/PagesLayout";
-import ErrorView from "./pages/ErrorView";
+import Router from "./router/Router";
+import "./style/style.css";
 
 export default function App() {
   return (
-    <Routes>
-      <Route path="/" element={<Layout />}>
-        <Route path="user/:userId" element={<Dashboard />} />
-      </Route>
-      <Route path="*" element={<ErrorView />} />
-    </Routes>
+    <div className="app-wrapper">
+      <Router />
+    </div>
   );
 }
