@@ -1,5 +1,4 @@
 import UserGreeting from "../components/UserGreeting";
-import Layout from "./PagesLayout";
 import ActivityChart from "../components/ActivityChart";
 import SessionsChart from "../components/SessionsChart";
 import PerformanceChart from "../components/PerformanceChart";
@@ -8,7 +7,6 @@ import ScoreChart from "../components/ScoreChart";
 export default function Dashboard() {
   return (
     <>
-      <Layout />
       <UserGreeting />
       <ActivityChart />
       <SessionsChart />
