@@ -3,8 +3,24 @@ import ActivityChart from "../../components/activity/ActivityChart";
 import SessionsChart from "../../components/sessions/SessionsChart";
 import PerformanceChart from "../../components/performance/PerformanceChart";
 import ScoreChart from "../../components/score/ScoreChart";
+import { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
+import { getMainData } from "../../services/getData";
 
 export default function Dashboard() {
+  const { userId } = useParams();
+
+  const [userData, setData] = useState();
+
+  useEffect(() => {
+    getMainData(Number.parseInt(userId, 10)).then((data) => {
+      console.log(data);
+      setData(data);
+    });
+  }, [userId]);
+
+  console.log(userData);
+
   return (
     <main className="main-content">
       <UserGreeting />
