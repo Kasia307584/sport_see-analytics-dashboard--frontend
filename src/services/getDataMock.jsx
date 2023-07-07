@@ -19,14 +19,22 @@ export function getPerformance(userId) {
 }
 
 export const getUserData = async (id) => {
-  //ici transformation des données si nécessaire (ex : jours de semaine au lieu de 2020-07-01 etc...)
-  const [mainData, activityData, averageSessions, performance] =
+  let [mainData, activityData, averageSessions, performance] =
     await Promise.all([
       getMainData(id),
       getUserActivity(id),
       getAverageSessions(id),
       getPerformance(id),
     ]);
+
+  // data transformation
+  activityData.sessions.map((session, i) => {
+    return (session.day = (++i).toString());
+  });
+  let weekdays = ["L", "M", "M", "J", "V", "S", "D"];
+  averageSessions.sessions.map((session, i) => {
+    return (session.day = weekdays[i]);
+  });
 
   return {
     mainData,
