@@ -17,3 +17,21 @@ export function getAverageSessions(userId) {
 export function getPerformance(userId) {
   return data.USER_PERFORMANCE.find((item) => item.userId === toNum(userId));
 }
+
+export const getUserData = async (id) => {
+  //ici transformation des données si nécessaire (ex : jours de semaine au lieu de 2020-07-01 etc...)
+  const [mainData, activityData, averageSessions, performance] =
+    await Promise.all([
+      getMainData(id),
+      getUserActivity(id),
+      getAverageSessions(id),
+      getPerformance(id),
+    ]);
+
+  return {
+    mainData,
+    activityData,
+    averageSessions,
+    performance,
+  };
+};

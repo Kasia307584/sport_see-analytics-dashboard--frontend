@@ -5,7 +5,7 @@ import PerformanceChart from "../../components/performance/PerformanceChart";
 import ScoreChart from "../../components/score/ScoreChart";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { getMainData } from "../../services/getData";
+import { getUserData } from "../../services/getDataMock";
 
 export default function Dashboard() {
   const { userId } = useParams();
@@ -13,7 +13,7 @@ export default function Dashboard() {
   const [userData, setData] = useState();
 
   useEffect(() => {
-    getMainData(Number.parseInt(userId, 10)).then((data) => {
+    getUserData(Number.parseInt(userId, 10)).then((data) => {
       console.log(data);
       setData(data);
     });
@@ -23,7 +23,7 @@ export default function Dashboard() {
 
   return (
     <main className="main-content">
-      <UserGreeting />
+      <UserGreeting userName={userData?.mainData?.userInfos?.firstName} />
       <ActivityChart />
       <SessionsChart />
       <PerformanceChart />
