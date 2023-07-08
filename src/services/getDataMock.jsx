@@ -28,12 +28,13 @@ export const getUserData = async (id) => {
     ]);
 
   // data transformation
-  activityData.sessions.map((session, i) => {
-    return (session.day = (++i).toString());
+  activityData.sessions.forEach((session, i) => {
+    session.day = (++i).toString();
   });
+
   let weekdays = ["L", "M", "M", "J", "V", "S", "D"];
-  averageSessions.sessions.map((session, i) => {
-    return (session.day = weekdays[i]);
+  averageSessions.sessions.forEach((session, i) => {
+    session.day = weekdays[i];
   });
 
   return {
