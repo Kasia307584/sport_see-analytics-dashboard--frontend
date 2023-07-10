@@ -5,7 +5,7 @@ import PerformanceChart from "../../components/performance/PerformanceChart";
 import ScoreChart from "../../components/score/ScoreChart";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import getUserData from "../../services/getData";
+import getUserDataFormatted from "../../services/getData";
 
 export default function Dashboard() {
   const { userId } = useParams();
@@ -13,7 +13,7 @@ export default function Dashboard() {
   const [userData, setData] = useState();
 
   useEffect(() => {
-    getUserData(Number.parseInt(userId, 10)).then((data) => {
+    getUserDataFormatted(Number.parseInt(userId, 10)).then((data) => {
       console.log(data);
       setData(data);
     });

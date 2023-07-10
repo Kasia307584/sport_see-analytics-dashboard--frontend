@@ -3,15 +3,6 @@ import { Radar, RadarChart, PolarGrid, PolarAngleAxis } from "recharts";
 export default function PerformanceChart(props) {
   const { performanceData } = props;
 
-  const dataFormatted = performanceData?.data.map((item) => {
-    const performanceItem = {};
-
-    performanceItem.kind = performanceData.kind[item.kind];
-    performanceItem.value = item.value;
-
-    return performanceItem;
-  });
-
   return (
     <div className="performance-wrapper">
       <RadarChart
@@ -20,7 +11,7 @@ export default function PerformanceChart(props) {
         cx="50%"
         cy="50%"
         outerRadius="80%"
-        data={dataFormatted}
+        data={performanceData}
         style={{ background: "#000000" }}
       >
         <PolarGrid stroke="#FFFFFF" />
