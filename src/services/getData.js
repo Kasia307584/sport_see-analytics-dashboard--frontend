@@ -19,17 +19,18 @@ export function getPerformance(userId) {
     .then((json) => json.data);
 }
 
-export const getUserData = async (id) => {
+export default async function getUserData(userId) {
   const [mainData, activityData, averageSessions, performance] =
     await Promise.all([
-      getMainData(id),
-      getUserActivity(id),
-      getAverageSessions(id),
-      getPerformance(id),
+      getMainData(userId),
+      getUserActivity(userId),
+      getAverageSessions(userId),
+      getPerformance(userId),
     ]);
 
   // data transformation
   // vaut mieux creer un nouveau tableau
+  // precise ici si tu es en version moquee ou pas
   activityData.sessions = activityData.sessions.map((session, i) => {
     session.day = (++i).toString();
     return session;
@@ -39,7 +40,6 @@ export const getUserData = async (id) => {
     session.day = weekdays[i];
     return session;
   });
-  // map sur data creer un nouvel objet avec titre (recuper id donc le 1, performance.kind[1]) et valeur (le meme)
 
   return {
     mainData,
@@ -47,4 +47,4 @@ export const getUserData = async (id) => {
     averageSessions,
     performance,
   };
-};
+}

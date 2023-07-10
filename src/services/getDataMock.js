@@ -18,13 +18,13 @@ export function getPerformance(userId) {
   return data.USER_PERFORMANCE.find((item) => item.userId === toNum(userId));
 }
 
-export const getUserData = async (id) => {
-  let [mainData, activityData, averageSessions, performance] =
+export default async function getUserData(userId) {
+  const [mainData, activityData, averageSessions, performance] =
     await Promise.all([
-      getMainData(id),
-      getUserActivity(id),
-      getAverageSessions(id),
-      getPerformance(id),
+      getMainData(userId),
+      getUserActivity(userId),
+      getAverageSessions(userId),
+      getPerformance(userId),
     ]);
 
   // data transformation
@@ -43,4 +43,4 @@ export const getUserData = async (id) => {
     averageSessions,
     performance,
   };
-};
+}
