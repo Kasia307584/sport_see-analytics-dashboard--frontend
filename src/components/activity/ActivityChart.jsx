@@ -1,5 +1,3 @@
-import { useParams } from "react-router-dom";
-import { getUserActivity } from "../../services/getDataMock";
 import {
   BarChart,
   Bar,
@@ -10,12 +8,10 @@ import {
   Legend,
 } from "recharts";
 
-export default function ActivityChart() {
-  const { userId } = useParams();
+export default function ActivityChart(props) {
+  const { sessions } = props;
 
-  const user = getUserActivity(userId);
-
-  const data = user.sessions.map((item) => ({
+  const data = sessions?.map((item) => ({
     name: item.day,
     uv: item.kilogram,
     pv: item.calories,
@@ -76,5 +72,3 @@ export default function ActivityChart() {
     </div>
   );
 }
-
-// tu pourrais modifier tes donnees directement ici, dans data - name: ici, mais il est demandé de le faire dans une fonction a part, avant
