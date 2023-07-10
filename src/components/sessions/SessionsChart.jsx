@@ -1,13 +1,9 @@
-import { useParams } from "react-router-dom";
 import { LineChart, Line, XAxis, Tooltip } from "recharts";
-import { getAverageSessions } from "../../services/getDataMock";
 
-export default function SessionsChart() {
-  const { userId } = useParams();
+export default function SessionsChart(props) {
+  const { sessions } = props;
 
-  const user = getAverageSessions(userId);
-
-  const data = user.sessions.map((item) => ({
+  const data = sessions?.map((item) => ({
     name: item.day,
     uv: item.sessionLength,
   }));

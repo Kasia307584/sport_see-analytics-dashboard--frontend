@@ -1,5 +1,3 @@
-import { useParams } from "react-router-dom";
-import { getMainData } from "../../services/getDataMock";
 import { RadialBarChart, RadialBar, Legend, PolarAngleAxis } from "recharts";
 
 const style = {
@@ -8,15 +6,13 @@ const style = {
   lineHeight: "24px",
 };
 
-export default function ScoreChart() {
-  const { userId } = useParams();
-
-  const user = getMainData(userId);
+export default function ScoreChart(props) {
+  const { todayScore } = props;
 
   const data = [
     {
-      name: user.todayScore + " de votre objectif",
-      uv: user.todayScore + 40,
+      name: todayScore + " de votre objectif",
+      uv: todayScore + 40,
     },
   ];
 

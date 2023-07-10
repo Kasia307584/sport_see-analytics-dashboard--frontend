@@ -1,15 +1,9 @@
-import { useParams } from "react-router-dom";
-import { getPerformance } from "../../services/getDataMock";
 import { Radar, RadarChart, PolarGrid, PolarAngleAxis } from "recharts";
 
-export default function PerformanceChart() {
-  // const { performanceData } = props;
+export default function PerformanceChart(props) {
+  const { performanceData } = props;
 
-  const { userId } = useParams();
-
-  const performanceData = getPerformance(userId);
-
-  const performanceDataFormatted = performanceData.data.map((item) => {
+  const dataFormatted = performanceData?.data.map((item) => {
     const performanceItem = {};
 
     performanceItem.kind = performanceData.kind[item.kind];
@@ -26,7 +20,7 @@ export default function PerformanceChart() {
         cx="50%"
         cy="50%"
         outerRadius="80%"
-        data={performanceDataFormatted}
+        data={dataFormatted}
         style={{ background: "#000000" }}
       >
         <PolarGrid stroke="#FFFFFF" />

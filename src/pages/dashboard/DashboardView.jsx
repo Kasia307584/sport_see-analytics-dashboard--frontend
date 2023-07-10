@@ -25,9 +25,9 @@ export default function Dashboard() {
     <main className="main-content">
       <UserGreeting userName={userData?.mainData?.userInfos?.firstName} />
       <ActivityChart sessions={userData?.activityData?.sessions} />
-      <SessionsChart />
-      <PerformanceChart />
-      <ScoreChart />
+      <SessionsChart sessions={userData?.averageSessions?.sessions} />
+      <PerformanceChart performanceData={userData?.performance} />
+      <ScoreChart todayScore={userData?.mainData?.todayScore} />
     </main>
   );
 }
