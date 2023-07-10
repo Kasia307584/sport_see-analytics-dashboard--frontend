@@ -23,11 +23,11 @@ export default function Dashboard() {
 
   return (
     <main className="main-content">
-      <UserGreeting userName={userData?.mainData?.userInfos?.firstName} />
-      <ActivityChart sessions={userData?.activityData?.sessions} />
-      <SessionsChart sessions={userData?.averageSessions?.sessions} />
+      <UserGreeting userName={userData?.firstName} />
+      <ActivityChart sessions={userData?.sessions} />
+      <SessionsChart sessions={userData?.avgSessions} />
       <PerformanceChart performanceData={userData?.performance} />
-      <ScoreChart todayScore={userData?.mainData?.todayScore} />
+      <ScoreChart todayScore={userData?.todayScore} />
     </main>
   );
 }

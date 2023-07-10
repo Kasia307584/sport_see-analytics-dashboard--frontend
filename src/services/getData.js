@@ -39,25 +39,7 @@ export async function getUserData(userId) {
 export default async function getUserDataFormatted(userId) {
   const dataRecieved = await getUserData(userId);
 
-  const data = { ...dataRecieved };
-
-  // activity data transformation
-  data.activityData.sessions = data.activityData.sessions.map((session, i) => {
-    session.day = (++i).toString();
-    console.log(session);
-    return session;
-  });
-
-  // average sessions data transformation
   const weekdays = ["L", "M", "M", "J", "V", "S", "D"];
-  data.averageSessions.sessions = dataRecieved.averageSessions.sessions.map(
-    (session, i) => {
-      session.day = weekdays[i];
-      return session;
-    }
-  );
-
-  // performance data transformation
   const kindFr = {
     1: "Cardio",
     2: "Energie",
@@ -66,16 +48,34 @@ export default async function getUserDataFormatted(userId) {
     5: "Vitesse",
     6: "Intensité",
   };
-  data.performance = data.performance.data.map((item) => {
-    const performanceItem = {};
 
-    performanceItem.kind = kindFr[item.kind];
-    performanceItem.value = item.value;
+  const mainData = dataRecieved.mainData;
+  const activityData = dataRecieved.activityData;
+  const averageSessions = dataRecieved.averageSessions;
+  const performance = dataRecieved.performance;
 
-    return performanceItem;
-  });
-  console.log(dataRecieved);
-  console.log(data);
+  const dataFormatted = {
+    userId: mainData.id,
+    firstName: mainData.userInfos.firstName,
+    todayScore: mainData.todayScore,
+    keyData: mainData.keyData,
+    sessions: activityData.sessions.map((session, i) => {
+      const session_copy = { ...session };
+      session_copy.day = (++i).toString();
+      return session_copy;
+    }),
+    avgSessions: averageSessions.sessions.map((session, i) => {
+      const session_copy = { ...session };
+      session_copy.day = weekdays[i];
+      return session_copy;
+    }),
+    performance: performance.data.map((item) => {
+      const performanceItem = {};
+      performanceItem.kind = kindFr[item.kind];
+      performanceItem.value = item.value;
+      return performanceItem;
+    }),
+  };
 
-  return data;
+  return dataFormatted;
 }
