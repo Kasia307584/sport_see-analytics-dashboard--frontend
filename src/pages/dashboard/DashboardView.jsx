@@ -3,6 +3,7 @@ import ActivityChart from "../../components/activity/ActivityChart";
 import SessionsChart from "../../components/sessions/SessionsChart";
 import PerformanceChart from "../../components/performance/PerformanceChart";
 import ScoreChart from "../../components/score/ScoreChart";
+import KeyData from "../../components/keyData/KeyData";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import getUserDataFormatted from "../../services/getDataMock";
@@ -28,6 +29,7 @@ export default function Dashboard() {
       <SessionsChart sessions={userData?.avgSessions} />
       <PerformanceChart performanceData={userData?.performance} />
       <ScoreChart todayScore={userData?.todayScore} />
+      <KeyData keyData={userData?.keyData} />
     </main>
   );
 }
