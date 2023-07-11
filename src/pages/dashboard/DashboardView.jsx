@@ -5,7 +5,7 @@ import PerformanceChart from "../../components/performance/PerformanceChart";
 import ScoreChart from "../../components/score/ScoreChart";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import getUserDataFormatted from "../../services/getData";
+import getUserDataFormatted from "../../services/getDataMock";
 
 export default function Dashboard() {
   const { userId } = useParams();
