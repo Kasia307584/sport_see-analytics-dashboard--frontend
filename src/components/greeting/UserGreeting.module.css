@@ -1,0 +1,12 @@
+.greeting-wrapper {
+  margin-bottom: 65px;
+}
+.greeting-main {
+  margin-bottom: 25px;
+}
+.user-name {
+  color: var(--primary-1);
+}
+.greeting-message {
+  font-size: 20px;
+}

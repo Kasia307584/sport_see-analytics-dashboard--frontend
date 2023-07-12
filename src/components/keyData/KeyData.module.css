@@ -2,4 +2,39 @@
   position: relative;
   top: -531px;
   right: -970px;
+  height: 600px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.keyData-wrapper > div {
+  display: flex;
+  /* justify-content: center; */
+  align-items: center;
+  width: 250px;
+  height: 120px;
+  background-color: var(--neutral-1);
+  border-radius: 5px;
+}
+/* .keyItem-wrapper {
+  display: flex;
+} */
+.keyItem-icon {
+  width: 60px;
+  margin-right: 25px;
+  margin-left: 30px;
+}
+.keyItem-info {
+  height: 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.keyItem-count {
+  font-size: 22px;
+  margin: 0 0 5px 0;
+}
+.keyItem-name {
+  font-size: 14px;
+  color: var(--neutral-2);
 }
