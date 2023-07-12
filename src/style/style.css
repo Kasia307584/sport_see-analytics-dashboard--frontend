@@ -1,0 +1,35 @@
+:root {
+  --white: #fff;
+  --black: #000;
+
+  /* Primary colors*/
+  --primary-1: #ff0101;
+
+  /* Neutral colors */
+  --neutral-1: #fbfbfb;
+}
+
+body,
+html {
+  min-width: 1024px;
+  margin: auto;
+  font-family: "Roboto", sans-serif;
+  font-size: 22px;
+  font-weight: 500;
+  height: 100%;
+}
+p,
+h1 {
+  margin: 0;
+  padding: 0;
+}
+a {
+  text-decoration: none;
+}
+ul {
+  list-style: none;
+  padding: 0;
+}
+.app-wrapper {
+  height: 100vh;
+}
