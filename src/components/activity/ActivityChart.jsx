@@ -8,13 +8,40 @@ import {
   Legend,
 } from "recharts";
 
+function CustomTooltip({ active, payload }) {
+  if (active && payload && payload.length) {
+    return (
+      <>
+        <div
+          style={{
+            backgroundColor: "#FF0000",
+            color: "#fff",
+            fontSize: "10px",
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+          }}
+        >
+          <div style={{ padding: "14px 6px" }} className="label">
+            {`${payload[0].value}kg`}
+          </div>
+          <div style={{ padding: "14px 6px" }} className="kCal">
+            {`${payload[1].value}kCal`}
+          </div>
+        </div>
+      </>
+    );
+  }
+  return null;
+}
+
 export default function ActivityChart(props) {
   const { sessions } = props;
 
   const data = sessions?.map((item) => ({
     name: item.day,
-    uv: item.kilogram,
-    pv: item.calories,
+    kg: item.kilogram,
+    kCal: item.calories,
   }));
 
   const tooltipStyle = {
@@ -54,17 +81,23 @@ export default function ActivityChart(props) {
           axisLine={false}
         />
         <YAxis yAxisId="right" orientation="left" stroke="#888888" hide />
-        <Tooltip itemStyle={tooltipStyle} />
-        <Legend />
+        <Tooltip itemStyle={tooltipStyle} content={<CustomTooltip />} />
+        <Legend
+          height={50}
+          wrapperStyle={{ top: 0, right: 25 }}
+          layout="horizontal"
+          verticalAlign="top"
+          align="right"
+        />
         <Bar
           yAxisId="left"
-          dataKey="uv"
+          dataKey="kg"
           fill="#000000"
           radius={[20, 20, 0, 0]}
         />
         <Bar
           yAxisId="right"
-          dataKey="pv"
+          dataKey="kCal"
           fill="#FF0000"
           radius={[20, 20, 0, 0]}
         />
