@@ -1,0 +1,8 @@
+.main-content {
+  position: absolute;
+  left: 16%;
+  top: 132px;
+}
+.small-charts {
+  display: flex;
+}

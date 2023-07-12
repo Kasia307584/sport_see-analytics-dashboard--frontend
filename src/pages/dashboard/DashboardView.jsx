@@ -7,6 +7,7 @@ import KeyData from "../../components/keyData/KeyData";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import getUserDataFormatted from "../../services/getDataMock";
+import styles from "./DashboardView.module.css";
 
 export default function Dashboard() {
   const { userId } = useParams();
@@ -23,12 +24,14 @@ export default function Dashboard() {
   console.log(userData);
 
   return (
-    <main className="main-content">
+    <main className={styles["main-content"]}>
       <UserGreeting userName={userData?.firstName} />
       <ActivityChart sessions={userData?.sessions} />
-      <SessionsChart sessions={userData?.avgSessions} />
-      <PerformanceChart performanceData={userData?.performance} />
-      <ScoreChart todayScore={userData?.todayScore} />
+      <div className={styles["small-charts"]}>
+        <SessionsChart sessions={userData?.avgSessions} />
+        <PerformanceChart performanceData={userData?.performance} />
+        <ScoreChart todayScore={userData?.todayScore} />
+      </div>
       <KeyData keyData={userData?.keyData} />
     </main>
   );
