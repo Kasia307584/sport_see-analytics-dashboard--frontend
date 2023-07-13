@@ -6,7 +6,7 @@ import ScoreChart from "../../components/score/ScoreChart";
 import KeyData from "../../components/keyData/KeyData";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import getUserDataFormatted from "../../services/getDataMock";
+import getFormattedData from "../../services/getFormattedData";
 import styles from "./DashboardView.module.css";
 
 export default function Dashboard() {
@@ -15,7 +15,7 @@ export default function Dashboard() {
   const [userData, setData] = useState();
 
   useEffect(() => {
-    getUserDataFormatted(Number.parseInt(userId, 10)).then((data) => {
+    getFormattedData(Number.parseInt(userId, 10)).then((data) => {
       console.log(data);
       setData(data);
     });
