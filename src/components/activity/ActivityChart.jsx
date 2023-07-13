@@ -7,6 +7,7 @@ import {
   Tooltip,
   Legend,
 } from "recharts";
+import styles from "./ActivityChart.module.css";
 
 function CustomTooltip({ active, payload }) {
   if (active && payload && payload.length) {
@@ -22,7 +23,7 @@ function CustomTooltip({ active, payload }) {
             alignItems: "center",
           }}
         >
-          <div style={{ padding: "14px 6px" }} className="label">
+          <div style={{ padding: "14px 6px" }} className="kg">
             {`${payload[0].value}kg`}
           </div>
           <div style={{ padding: "14px 6px" }} className="kCal">
@@ -44,13 +45,13 @@ export default function ActivityChart(props) {
     kCal: item.calories,
   }));
 
-  const tooltipStyle = {
-    backgroundColor: "#FF0000",
-    color: "#ededed",
+  const labels = {
+    kg: "Poids (kg)",
+    kCal: "Calories brûlées (kCal)",
   };
 
   return (
-    <div className="activity-wrapper">
+    <div className={styles["activity-wrapper"]}>
       <BarChart
         width={800}
         height={250}
@@ -65,6 +66,16 @@ export default function ActivityChart(props) {
         barGap={10}
       >
         <CartesianGrid strokeDasharray="3 3" vertical={false} />
+        <text
+          x={100}
+          y={20}
+          textAnchor="middle"
+          dominantBaseline="middle"
+          style={{ fontSize: "16px", fontWeight: "bold" }}
+        >
+          Activité quotidienne
+        </text>
+
         <XAxis
           dataKey="name"
           tickLine={false}
@@ -81,13 +92,14 @@ export default function ActivityChart(props) {
           axisLine={false}
         />
         <YAxis yAxisId="right" orientation="left" stroke="#888888" hide />
-        <Tooltip itemStyle={tooltipStyle} content={<CustomTooltip />} />
+        <Tooltip content={<CustomTooltip />} />
         <Legend
           height={50}
           wrapperStyle={{ top: 0, right: 25 }}
           layout="horizontal"
           verticalAlign="top"
           align="right"
+          labels={labels}
         />
         <Bar
           yAxisId="left"
