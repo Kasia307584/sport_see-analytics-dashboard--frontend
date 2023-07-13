@@ -45,11 +45,6 @@ export default function ActivityChart(props) {
     kCal: item.calories,
   }));
 
-  const labels = {
-    kg: "Poids (kg)",
-    kCal: "Calories brûlées (kCal)",
-  };
-
   return (
     <div className={styles["activity-wrapper"]}>
       <BarChart
@@ -94,22 +89,27 @@ export default function ActivityChart(props) {
         <YAxis yAxisId="right" orientation="left" stroke="#888888" hide />
         <Tooltip content={<CustomTooltip />} />
         <Legend
-          height={50}
-          wrapperStyle={{ top: 0, right: 25 }}
+          height={60}
+          wrapperStyle={{ top: 10, right: 25 }}
           layout="horizontal"
           verticalAlign="top"
           align="right"
-          labels={labels}
+          iconType="circle"
+          formatter={(colorLegend) => (
+            <span style={{ color: "#777" }}>{colorLegend}</span>
+          )}
         />
         <Bar
           yAxisId="left"
           dataKey="kg"
+          name="Poids (kg)"
           fill="#000000"
           radius={[20, 20, 0, 0]}
         />
         <Bar
           yAxisId="right"
           dataKey="kCal"
+          name="Calories brûlées (kCal)"
           fill="#FF0000"
           radius={[20, 20, 0, 0]}
         />

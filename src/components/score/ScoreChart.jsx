@@ -4,6 +4,8 @@ const style = {
   top: "50%",
   transform: "translate(0, -50%)",
   lineHeight: "24px",
+  fontSize: "16px",
+  width: "80px",
 };
 
 export default function ScoreChart(props) {
@@ -11,8 +13,8 @@ export default function ScoreChart(props) {
 
   const data = [
     {
-      name: todayScore + " de votre objectif",
-      uv: todayScore + 40,
+      name: todayScore * 100 + "% de votre objectif",
+      uv: todayScore * 100,
     },
   ];
 
@@ -23,11 +25,12 @@ export default function ScoreChart(props) {
         height={300}
         cx="50%"
         cy="50%"
-        innerRadius="50%"
+        innerRadius="65%"
         barSize={10}
         data={data}
         startAngle={90}
-        style={{ background: "#ededed" }}
+        endAngle={450}
+        style={{ background: "#fbfbfb" }}
       >
         <PolarAngleAxis type="number" domain={[0, 100]} tick={false} />
         <RadialBar dataKey="uv" fill="#FF0000" cornerRadius={25} />
@@ -38,6 +41,13 @@ export default function ScoreChart(props) {
           wrapperStyle={style}
         />
       </RadialBarChart>
+      <div></div>
     </div>
   );
 }
+
+// pour ajouter le cercle blanc au milieu tu peux essayer :
+// apres radialbarchart je mets une div ou p avec class legende
+// je la place au centre z-index plus elevé et couleur font blanc et transforme pour l'arondir et translate
+// ds ma div je mets p et je mets la valeur todayScore
+// dans la div jouer avec la position relative ou absolute mais top et left en pourcentage (45%)
