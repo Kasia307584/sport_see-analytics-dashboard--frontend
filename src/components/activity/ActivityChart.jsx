@@ -45,6 +45,11 @@ export default function ActivityChart(props) {
     kCal: item.calories,
   }));
 
+  const kgValues = data?.map((item) => item.kg);
+  const minKg = kgValues ? Math.min(...kgValues) - 1 : null;
+  const maxKg = kgValues ? Math.max(...kgValues) : null;
+  const formatYAxisTick = (value) => Math.round(value);
+
   return (
     <div className={styles["activity-wrapper"]}>
       <BarChart
@@ -85,8 +90,16 @@ export default function ActivityChart(props) {
           tickLine={false}
           tickSize={17}
           axisLine={false}
+          domain={[minKg, maxKg]}
+          tickFormatter={formatYAxisTick}
+          tickCount={maxKg - minKg + 1}
         />
-        <YAxis yAxisId="right" orientation="left" stroke="#888888" hide />
+        <YAxis
+          yAxisId="right"
+          orientation="left"
+          stroke="#888888"
+          hide={true}
+        />
         <Tooltip content={<CustomTooltip />} />
         <Legend
           height={60}
