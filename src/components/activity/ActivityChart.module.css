@@ -1,7 +1,7 @@
 .activity-wrapper {
   background-color: var(--neutral-1);
-  padding: 20px;
+  padding: 20px 0;
   border-radius: 5px;
   font-size: 16px;
-  margin-bottom: 35px;
+  margin-bottom: 40px;
 }

@@ -23,12 +23,8 @@ function CustomTooltip({ active, payload }) {
             alignItems: "center",
           }}
         >
-          <div style={{ padding: "14px 6px" }} className="kg">
-            {`${payload[0].value}kg`}
-          </div>
-          <div style={{ padding: "14px 6px" }} className="kCal">
-            {`${payload[1].value}kCal`}
-          </div>
+          <div style={{ padding: "14px 6px" }}>{`${payload[0].value}kg`}</div>
+          <div style={{ padding: "14px 6px" }}>{`${payload[1].value}kCal`}</div>
         </div>
       </>
     );
@@ -53,8 +49,8 @@ export default function ActivityChart(props) {
   return (
     <div className={styles["activity-wrapper"]}>
       <BarChart
-        width={800}
-        height={250}
+        width={880}
+        height={280}
         data={data}
         margin={{
           top: 20,
@@ -64,6 +60,7 @@ export default function ActivityChart(props) {
         }}
         barSize={10}
         barGap={10}
+        style={{ background: "#fbfbfb" }}
       >
         <CartesianGrid strokeDasharray="3 3" vertical={false} />
         <text
@@ -71,16 +68,15 @@ export default function ActivityChart(props) {
           y={20}
           textAnchor="middle"
           dominantBaseline="middle"
-          style={{ fontSize: "16px", fontWeight: "bold" }}
+          style={{ fontWeight: "bold" }}
         >
           Activité quotidienne
         </text>
-
         <XAxis
           dataKey="name"
           tickLine={false}
           stroke="#888888"
-          tickSize={17}
+          tickSize={20}
           axisLine={{ stroke: "#d4d4d4", strokeWidth: 1 }}
         />
         <YAxis
@@ -88,7 +84,7 @@ export default function ActivityChart(props) {
           orientation="right"
           stroke="#888888"
           tickLine={false}
-          tickSize={17}
+          tickSize={20}
           axisLine={false}
           domain={[minKg, maxKg]}
           tickFormatter={formatYAxisTick}
@@ -102,8 +98,8 @@ export default function ActivityChart(props) {
         />
         <Tooltip content={<CustomTooltip />} />
         <Legend
-          height={60}
-          wrapperStyle={{ top: 10, right: 25 }}
+          height={70}
+          wrapperStyle={{ top: 10, right: 35 }}
           layout="horizontal"
           verticalAlign="top"
           align="right"
