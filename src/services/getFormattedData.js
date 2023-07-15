@@ -3,8 +3,8 @@ import {
   getUserActivity,
   getAverageSessions,
   getPerformance,
-} from "./getData";
-// you can switch between ./getDataMock and ./getData to import mocked or fetched data
+} from "./getDataMock";
+// switch between ./getDataMock and ./getData to import mocked or fetched data
 
 async function getFullData(userId) {
   const [mainData, activityData, averageSessions, performance] =
