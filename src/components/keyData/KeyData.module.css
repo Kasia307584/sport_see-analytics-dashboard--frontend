@@ -1,24 +1,20 @@
 .keyData-wrapper {
   position: relative;
-  top: -531px;
-  right: -970px;
-  height: 600px;
+  top: -638px;
+  right: -938px;
+  height: 638px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
 .keyData-wrapper > div {
   display: flex;
-  /* justify-content: center; */
   align-items: center;
   width: 250px;
   height: 120px;
   background-color: var(--neutral-1);
   border-radius: 5px;
 }
-/* .keyItem-wrapper {
-  display: flex;
-} */
 .keyItem-icon {
   width: 60px;
   margin-right: 25px;
