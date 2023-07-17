@@ -41,11 +41,19 @@ export default async function getFormattedData(userId) {
   const averageSessions = dataRecieved.averageSessions;
   const performance = dataRecieved.performance;
 
+  const formatKeyData = () => {
+    const keyData_copy = { ...mainData.keyData };
+    for (let value in keyData_copy) {
+      keyData_copy[value] = keyData_copy[value].toLocaleString("en-US");
+    }
+    return keyData_copy;
+  };
+
   const dataFormatted = {
     userId: mainData.id,
     firstName: mainData.userInfos.firstName,
     todayScore: mainData.todayScore,
-    keyData: mainData.keyData,
+    keyData: formatKeyData(),
     sessions: activityData.sessions.map((session, i) => {
       const session_copy = { ...session };
       session_copy.day = (++i).toString();

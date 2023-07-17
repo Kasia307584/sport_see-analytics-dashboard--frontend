@@ -20,23 +20,6 @@ function CustomTooltip({ active, payload }) {
   return null;
 }
 
-const CustomizedDot = (props) => {
-  const { cx, cy, payload } = props;
-
-  if (payload.visible) {
-    return (
-      <svg x={cx - 4} y={cy - 4} width={8} height={8} fill="white">
-        <g transform="translate(4 4)">
-          <circle r="4" fill="black" />
-          <circle r="2" fill="white" />
-        </g>
-      </svg>
-    );
-  }
-
-  return null;
-};
-
 export default function SessionsChart(props) {
   const { sessions } = props;
 
@@ -61,9 +44,13 @@ export default function SessionsChart(props) {
         borderRadius: "5px",
         margin: "0 40px 0 0",
       }}
+      margin={{ top: 5, right: 10, bottom: 10, left: 10 }}
     >
-      <text x={30} y={40} fill="#fff" fillOpacity={0.5}>
-        Durée moyenne des sessions
+      <text x={30} y={30} fill="#fff" fillOpacity={0.5}>
+        Durée moyenne des
+      </text>
+      <text x={30} y={52} fill="#fff" fillOpacity={0.5}>
+        sessions
       </text>
       <XAxis
         dataKey="name"
@@ -86,7 +73,7 @@ export default function SessionsChart(props) {
         stroke="#ededed"
         opacity={0.8}
         strokeWidth={2}
-        dot={<CustomizedDot />}
+        dot={false}
       />
     </LineChart>
   );
