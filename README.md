@@ -1,6 +1,6 @@
 # SportSee - sport analytics dashboard
 
-SportSee is a mobile app that provides users with a personalized dashboard displaying analytics of their sports activities. It tracks sport sessions, daily weight, calories burned, and offers a score reflecting progress toward fitness goals — helping users stay motivated on their health journey.
+SportSee is an application that provides users with a personalized dashboard displaying analytics of their sports activities. It tracks sport sessions, daily weight, calories burned, and offers a score reflecting progress toward fitness goals — helping users stay motivated on their health journey.
 
 This app was developed as part of the [OpenClassrooms](https://openclassrooms.com/) curriculum.
 
