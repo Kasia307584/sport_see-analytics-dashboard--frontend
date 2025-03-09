@@ -20,6 +20,7 @@ Users should be able to:
 ### Links
 
 - Live Site URL: [See the live page here](https://sport-see-tawny.vercel.app/user/18)
+- Backend Repository: [Forked backend used in this project](https://github.com/Kasia307584/sport_see-analytics-dashboard--backend)
 
 ## My process
 
@@ -28,20 +29,20 @@ Users should be able to:
 - **React.js** for building the user interface
 - **React Router** for setting up dynamic routing based on user ID
 - **Recharts** library for data visualization
-- **External API** for fetching server data
+- **API REST** for fetching server data
 - **CSS3** and **BEM methodology** for styling and maintainable code structure
 - **Vercel** for seamless deployment and hosting
 
 ### What I learned
 
-- **Create Advanced Charts**: Used Recharts library to create data visualizations
-- **Interact with APIs**: Worked with web service to fetch data through endpoints
-- **Develop API Call Service**: Created a dedicated API call service to ensure data quality by fetching and formatting data for use within the application
-- **Test Data Consistency**: Implemented a toggle mechanism to switch between mocked and fetched data, allowing for testing of data handling by the API call service
-- **Use React Hooks**: Used the `useEffect` to perform side effects, such as data fetching
-- **Use React Router Build-in Components**: Used `Outlet` to handle nested routes
-- **Follow React Best Practices**: Followed the principle of passing props from the parent component rather than adding conditional logic in child components
-- **Understand Component Lifecicle**: Gained a better understanding of the component lifecycle in React, specifically the asynchronous nature of data fetching, which results in a component rendering twice. Ensured safe access to data by checking for undefined values before use:
+- Using the Recharts library to create advanced charts for data visualizations.
+- Working with an API web service to fetch data through endpoints.
+- Developing a dedicated API call service to ensure data quality by fetching and formatting data for use within the application.
+- Implementing a toggle mechanism to switch between mocked and fetched data, allowing for testing of data handling by the API call service.
+- Using the `useEffect` React hook to perform side effects, such as data fetching.
+- Using `Outlet` build-in React Router component to handle nested routes.
+- Following React best practices by appliyng the principle of passing props from the parent component rather than adding conditional logic in child components.
+- Gaining a better understanding of the React component lifecycle, specifically the asynchronous nature of data fetching, which results in a component rendering twice. Ensured safe access to data by checking for `undefined` values before use:
 
 ```javascript
 function Dashboard() {
@@ -66,9 +67,9 @@ function Dashboard() {
 }
 ```
 
-- **Run Backend**: Ran a provided backend locally
-- **Apply Scoped Styling with CSS Modules**: Used `CSS Modules` for component-scoped styling, allowing one CSS file per component
-- **Apply Project Structure**: Built a well-structured project, including components, pages, router, services, styles and images
+- Running a provided backend locally.
+- Using `CSS Modules` for component-scoped styling, allowing one CSS file per component.
+- Building a well-structured project, including components, pages, router, services, styles and images.
 
 ### Continued development
 
